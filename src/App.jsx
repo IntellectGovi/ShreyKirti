@@ -474,13 +474,13 @@ function MainInvitation() {
           
         </div>
 
-        <div className="my-3 flex flex-col items-center justify-center gap-1 animate-fade-up delay-500">
+        {/* <div className="my-3 flex flex-col items-center justify-center gap-1 animate-fade-up delay-500">
             <div className="flex items-center gap-3 w-full">
               <span className="h-px flex-1 bg-gold-soft/60" />
               <span className="font-script text-xl sm:text-2xl text-rose-deep italic">સગાઈ કરી રહ્યાં છે</span>
               <span className="h-px flex-1 bg-gold-soft/60" />
             </div>
-          </div>
+          </div> */}
 
           {/* Shiva-Parvati caricature */}
           <div className="relative z-10 w-full max-w-[280px] sm:max-w-[340px] mt-8 flex justify-center items-end animate-fade-up delay-1000">
