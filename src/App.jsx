@@ -155,7 +155,7 @@ function MusicPlayer({ play }) {
       {play && (
         <button
           type="button"
-          aria-label={muted ? 'Unmute background music' : 'Mute background music'}
+          aria-label={muted ? 'બેકગ્રાઉન્ડ સંગીત ચાલુ કરો' : 'બેકગ્રાઉન્ડ સંગીત બંધ કરો'}
           onClick={() => setMuted(m => !m)}
           className="fixed bottom-5 right-5 z-50 h-11 w-11 rounded-full bg-foreground/80 text-cream backdrop-blur shadow-elegant flex items-center justify-center hover:scale-105 transition"
         >
@@ -188,10 +188,10 @@ function CountdownTimer() {
   }, [])
 
   const units = [
-    { v: time.days, l: 'Days' },
-    { v: time.hours, l: 'Hours' },
-    { v: time.minutes, l: 'Minutes' },
-    { v: time.seconds, l: 'Seconds' },
+    { v: time.days, l: 'દિવસ' },
+    { v: time.hours, l: 'કલાક' },
+    { v: time.minutes, l: 'મિનિટ' },
+    { v: time.seconds, l: 'સેકન્ડ' },
   ]
 
   return (
@@ -243,7 +243,7 @@ function ScratchCard({ onRevealed, revealed }) {
       ctx.font = '600 14px "Cinzel", serif'
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
-      ctx.fillText('✦  SCRATCH TO REVEAL  ✦', rect.width / 2, rect.height / 2)
+      ctx.fillText('✦  પ્રગટ કરવા સ્ક્રેચ કરો  ✦', rect.width / 2, rect.height / 2)
     }
     draw()
     window.addEventListener('resize', draw)
@@ -292,8 +292,8 @@ function ScratchCard({ onRevealed, revealed }) {
   return (
     <div ref={containerRef} className="relative mx-auto w-full max-w-md h-32 rounded-2xl overflow-hidden border-2 border-gold-soft shadow-elegant select-none">
       <div className="absolute inset-0 flex flex-col items-center justify-center bg-cream">
-        <p className="font-cinzel tracking-[0.35em] text-sage-deep text-base">SAVE THE DATE</p>
-        <p className="font-cinzel text-2xl text-rose-deep mt-1">14th August 2026</p>
+        <p className="font-cinzel tracking-[0.35em] text-sage-deep text-base">તારીખ યાદ રાખો</p>
+        <p className="font-cinzel text-2xl text-rose-deep mt-1">૧૪ ઓગસ્ટ ૨૦૨૬</p>
       </div>
       {!revealed && (
         <canvas
@@ -320,25 +320,25 @@ function EnvelopeView({ onOpen, opening }) {
 
       <div className="relative z-10 flex flex-col items-center justify-center max-w-md w-full text-center">
         <div className={`mb-6 transition-all duration-500 ${opening ? 'opacity-0 scale-95' : 'animate-fade-up'}`}>
-          <img src={A.ganesh} alt="Lord Ganesha" className="w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto drop-shadow-md animate-shimmer" />
+          <img src={A.ganesh} alt="ભગવાન ગણેશ" className="w-20 h-20 sm:w-24 sm:h-24 object-contain mx-auto drop-shadow-md animate-shimmer" />
         </div>
 
         <button
           onClick={onOpen}
-          aria-label="Open invitation"
+          aria-label="આમંત્રણ ખોલો"
           className={`relative group transition-transform duration-500 hover:scale-105 active:scale-95 ${opening ? 'animate-envelope-open' : 'animate-fade-up delay-100'}`}
           style={{ perspective: '1000px' }}
         >
-          <img src={A.envelope} alt="Wedding invitation envelope" className="w-[280px] sm:w-[340px] md:w-[380px] h-auto drop-shadow-2xl" />
+          <img src={A.envelope} alt="લગ્નનું આમંત્રણ કવર" className="w-[280px] sm:w-[340px] md:w-[380px] h-auto drop-shadow-2xl" />
           <span className="absolute inset-0 flex items-center justify-center">
-            <img src={A.logo} alt="SR wax seal monogram" style={{ borderRadius: "100%" }} className="bg-white w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-lg group-hover:rotate-12 transition-transform duration-500" />
+            <img src={A.logo} alt="એસઆર મોનોગ્રામ" style={{ borderRadius: "100%" }} className="bg-white w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-lg group-hover:rotate-12 transition-transform duration-500" />
           </span>
         </button>
 
         <div className={`mt-10 text-center transition-all duration-500 ${opening ? 'opacity-0 translate-y-4 pointer-events-none' : 'animate-fade-up delay-200'}`}>
-          <h1 className="font-cinzel text-3xl sm:text-4xl text-rose-deep font-semibold tracking-[0.15em]">YOU'RE INVITED</h1>
+          <h1 className="font-cinzel text-3xl sm:text-4xl text-rose-deep font-semibold tracking-[0.15em]">આપ સૌ આમંત્રિત છો</h1>
           <p className="mt-3 font-bold font-serif-display text-foreground/80 italic tracking-wide text-base sm:text-lg">
-            Tap the envelope to open our invitation
+            આમંત્રણ ખોલવા કવર પર ટેપ કરો
           </p>
         </div>
       </div>
@@ -412,9 +412,9 @@ function MainInvitation() {
         <div className="relative z-10 w-full max-w-2xl mx-auto flex flex-col items-center text-center mt-12 sm:mt-16">
           {/* Ganesh + Mantra */}
           <div className="mb-4 animate-fade-up">
-            <img src={A.ganesh} alt="Lord Ganesha" width={80} height={80} className="mx-auto h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-md animate-shimmer" />
+            <img src={A.ganesh} alt="ભગવાન ગણેશ" width={80} height={80} className="mx-auto h-20 w-20 sm:h-24 sm:w-24 object-contain drop-shadow-md animate-shimmer" />
             <h3 className="font-cinzel text-xs sm:text-sm tracking-[0.25em] text-[#5C0F14] font-bold bg-[#FCF8F2]/90 border border-gold-soft/60 px-6 py-1.5 rounded-full shadow-sm inline-block mt-3 backdrop-blur-[1px]">
-              || Om Shree Ganeshaya Namah ||
+              || ॐ શ્રી ગણેશાય નમઃ ||
             </h3>
           </div>
 
@@ -432,16 +432,16 @@ function MainInvitation() {
           </div>
 
           <p className="font-serif-display text-sm sm:text-base text-foreground/80 max-w-md px-4 animate-fade-up delay-300">
-            We request the honor of your gracious presence on the auspicious occasion of the engagement celebration of
+            અમારા સગાઈના શુભ પ્રસંગે આપની પાવન ઉપસ્થિતિની અમે વિનંતી કરીએ છીએ
           </p>
 
           {/* Groom */}
           <div className="mt-6 flex flex-col items-center">
             <h1 className="animate-fade-up delay-400">
-              <span className="font-script text-6xl sm:text-8xl text-rose leading-none drop-shadow-sm hover:scale-105 transition-transform duration-500 block">Shrey</span>
+              <span className="font-script text-6xl sm:text-8xl text-rose leading-none drop-shadow-sm hover:scale-105 transition-transform duration-500 block">શ્રેય</span>
             </h1>
             <div className="mt-2 text-xs sm:text-sm text-foreground/80 tracking-wide leading-relaxed animate-fade-up delay-500">
-              <p className="font-medium">S/o Mrs. Panna Khokhra &amp; Mr. Bharat Khokhra</p>
+              <p className="font-medium">સુપુત્ર: શ્રીમતી પન્ના ખોખરા અને શ્રી ભરત ખોખરા</p>
             </div>
           </div>
 
@@ -449,7 +449,7 @@ function MainInvitation() {
           <div className="my-3 flex flex-col items-center justify-center gap-1 animate-fade-up delay-500">
             <div className="flex items-center gap-3 w-full">
               <span className="h-px flex-1 bg-gold-soft/60" />
-              <span className="font-script text-xl sm:text-2xl text-rose-deep italic">and</span>
+              <span className="font-script text-xl sm:text-2xl text-rose-deep italic">અને</span>
               <span className="h-px flex-1 bg-gold-soft/60" />
             </div>
           </div>
@@ -457,10 +457,10 @@ function MainInvitation() {
           {/* Bride */}
           <div className="flex flex-col items-center">
             <h1 className="animate-fade-up delay-500">
-              <span className="font-script text-6xl sm:text-8xl text-rose leading-none drop-shadow-sm hover:scale-105 transition-transform duration-500 block">Kirti</span>
+              <span className="font-script text-6xl sm:text-8xl text-rose leading-none drop-shadow-sm hover:scale-105 transition-transform duration-500 block">કીર્તિ</span>
             </h1>
             <div className="mt-2 text-xs sm:text-sm text-foreground/80 tracking-wide leading-relaxed animate-fade-up delay-700">
-              <p className="font-medium">D/o Mrs. Laxmi Upadhyay &amp; Mr. Brijesh Upadhyay</p>
+              <p className="font-medium">સુપુત્રી: શ્રીમતી લક્ષ્મી ઉપાધ્યાય અને શ્રી બ્રિજેશ ઉપાધ્યાય</p>
             </div>
             
           </div>
@@ -470,13 +470,13 @@ function MainInvitation() {
         <div className="my-3 flex flex-col items-center justify-center gap-1 animate-fade-up delay-500">
             <div className="flex items-center gap-3 w-full">
               <span className="h-px flex-1 bg-gold-soft/60" />
-              <span className="font-script text-xl sm:text-2xl text-rose-deep italic">getting engaged</span>
+              <span className="font-script text-xl sm:text-2xl text-rose-deep italic">સગાઈ કરી રહ્યાં છે</span>
               <span className="h-px flex-1 bg-gold-soft/60" />
             </div>
           </div>
 
           {/* Shiva-Parvati caricature */}
-          <div className="relative z-10 w-full max-w-[280px] sm:max-w-[340px] mx-auto -mt-2 flex justify-center items-start animate-fade-up delay-1000">
+          <div className="relative z-10 w-full max-w-[420px] sm:max-w-[520px] mx-auto -mt-48 sm:-mt-64 flex justify-center items-start animate-fade-up delay-1000">
             <img src={A.shivaParvati} alt="Shiva-Parvati engagement caricature" className="w-full h-auto object-contain drop-shadow-xl select-none" />
           </div>
         
@@ -486,7 +486,7 @@ function MainInvitation() {
       <section className="relative py-20 px-6 bg-cream border-y border-gold-soft/30 z-10">
         <img src={A.weddingHero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none" />
         <div className="relative max-w-3xl mx-auto text-center z-10">
-          <h2 className="font-cinzel text-xl sm:text-2xl text-rose-deep tracking-[0.2em] mb-4">SAVE THE DATE</h2>
+          <h2 className="font-cinzel text-xl sm:text-2xl text-rose-deep tracking-[0.2em] mb-4">તારીખ યાદ રાખો</h2>
           <Divider />
           <div className="mb-10 mt-8">
             <ScratchCard revealed={dateRevealed} onRevealed={() => setDateRevealed(true)} />
@@ -501,8 +501,8 @@ function MainInvitation() {
       <section className="relative py-20 px-4 sm:px-6 bg-[#FCF8F2] z-10">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="font-cinzel text-3xl sm:text-5xl text-rose-deep font-bold tracking-[0.15em]">ENGAGEMENT CEREMONY</h2>
-            <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/75 mt-1">JOIN US TO CELEBRATE</p>
+            <h2 className="font-cinzel text-3xl sm:text-5xl text-rose-deep font-bold tracking-[0.15em]">સગાઈ વિધિ</h2>
+            <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/75 mt-1">ઉજવણીમાં જોડાઓ</p>
             <Divider />
           </div>
 
@@ -521,18 +521,18 @@ function MainInvitation() {
                 ))}
               </div>
               <div className="relative z-10 text-center flex flex-col items-center w-full mx-auto bg-white/15 backdrop-blur-md border border-white/15 p-5 sm:p-6 rounded-3xl shadow-elegant mt-16 sm:mt-20">
-                <img src={A.logo} alt="SR Monogram" className="w-12 h-12 object-contain opacity-95 mb-2" />
+                <img src={A.logo} alt="એસઆર મોનોગ્રામ" className="w-12 h-12 object-contain opacity-95 mb-2" />
                 <p className="font-serif-display italic text-amber-200 text-lg font-semibold tracking-wider">#SKForever</p>
-                <h3 className="font-cinzel text-xs tracking-[0.2em] text-amber-200/80 mt-2 uppercase">PLEASE JOIN US FOR AN EVENING</h3>
-                <p className="font-serif-display text-sm sm:text-base text-amber-200 mt-1 italic">Witness the moment two rings lock in the promise of a lifetime.</p>
+                <h3 className="font-cinzel text-xs tracking-[0.2em] text-amber-200/80 mt-2 uppercase">એક સાંજ માટે અમારી સાથે જોડાઓ</h3>
+                <p className="font-serif-display text-sm sm:text-base text-amber-200 mt-1 italic">જ્યારે બે વીંટીઓ જીવનભરના વચનમાં જોડાય છે તે ક્ષણના સાક્ષી બનો.</p>
                 <div className="w-24 h-px bg-gold-soft/30 my-5" />
-                <h2 className="font-cinzel text-2xl sm:text-3xl tracking-[0.15em] font-bold text-[#47296b]">ENGAGEMENT CEREMONY</h2>
+                <h2 className="font-cinzel text-2xl sm:text-3xl tracking-[0.15em] font-bold text-[#47296b]">સગાઈ વિધિ</h2>
                 <div className="mt-4 bg-black/20 border border-gold-soft/25 px-6 py-2 rounded-full font-cinzel text-xs sm:text-sm text-[#47296b] font-semibold shadow-soft">
-                  14th August 2026 | 11:00 AM
+                  ૧૪ ઓગસ્ટ ૨૦૨૬ | સવારે ૧૧:૦૦
                 </div>
               </div>
               <div className="relative z-10 w-full max-w-[200px] sm:max-w-[240px] mx-auto mt-8 flex justify-center items-end self-end">
-                <img src={A.sangeetCouple} alt="Engagement Couple Caricature" className="w-full h-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500" />
+                <img src={A.sangeetCouple} alt="સગાઈ યુગલ ચિત્ર" className="w-full h-auto object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500" />
               </div>
             </div>
 
@@ -546,19 +546,19 @@ function MainInvitation() {
       <section className="relative py-24 px-6 bg-cream text-center z-10 border-t border-gold-soft/30">
         <img src={A.weddingHero} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none" />
         <div className="relative max-w-2xl mx-auto z-10">
-          <h2 className="font-script text-4xl sm:text-5xl text-rose-deep font-semibold">Awaiting Your Noble Presence</h2>
+          <h2 className="font-script text-4xl sm:text-5xl text-rose-deep font-semibold">આપની ઉમદા ઉપસ્થિતિની પ્રતીક્ષામાં</h2>
           <Divider />
           <p className="font-serif-display italic text-lg sm:text-xl text-foreground/90 leading-relaxed max-w-xl mx-auto">
-            Join us as we celebrate love, laughter, and the beginning of forever beautiful together. 🧿
+            પ્રેમ, હાસ્ય અને સાથે મળીને હંમેશ સુંદર જીવનની શરૂઆતની ઉજવણીમાં અમારી સાથે જોડાઓ. 🧿
           </p>
           <div className="w-16 h-px bg-gold-soft/60 mx-auto my-6" />
-          <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/70">WITH LOVE</p>
-          <h3 className="font-script text-3xl sm:text-4xl text-rose mt-1">Khokhra &amp; Upadhyay Families</h3>
+          <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/70">સ્નેહ સહિત</p>
+          <h3 className="font-script text-3xl sm:text-4xl text-rose mt-1">ખોખરા અને ઉપાધ્યાય પરિવાર</h3>
           <div className="w-16 h-px bg-gold-soft/60 mx-auto my-2" />
-          <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/70">LOVINGLY INVITED BY</p>
-          <h3 className="font-script text-xl sm:text-2xl text-rose mt-1">Friends &amp; Family</h3>
+          <p className="font-cinzel text-xs tracking-[0.25em] text-rose-deep/70">સ્નેહપૂર્વક આમંત્રણ</p>
+          <h3 className="font-script text-xl sm:text-2xl text-rose mt-1">મિત્રો અને પરિવાર</h3>
           <p className="font-serif-display text-xs text-foreground/60 mt-1 italic">
-            Eagerly awaiting the pleasure of your presence and blessings.
+            આપની ઉપસ્થિતિ અને આશીર્વાદની આતુરતાથી પ્રતીક્ષા.
           </p>
         </div>
       </section>
@@ -567,17 +567,17 @@ function MainInvitation() {
       <section className="relative py-20 px-6 bg-[#FAF6F0] z-10 border-t border-gold-soft/30">
         <div className="absolute inset-0 opacity-[0.08] bg-cover bg-center pointer-events-none" style={{ backgroundImage: `url(${A.weddingHero})` }} />
         <div className="relative max-w-4xl mx-auto text-center z-10">
-          <p className="font-cinzel text-xs text-rose-deep/80 tracking-[0.25em] uppercase">WHERE WE CELEBRATE</p>
-          <h2 className="font-script text-4xl sm:text-5xl text-rose-deep mt-2">Hotel Lotus Grand</h2>
+          <p className="font-cinzel text-xs text-rose-deep/80 tracking-[0.25em] uppercase">ઉજવણીનું સ્થળ</p>
+          <h2 className="font-script text-4xl sm:text-5xl text-rose-deep mt-2">હોટેલ લોટસ ગ્રાન્ડ</h2>
           <Divider />
           <p className="font-serif-display text-base sm:text-lg text-foreground/80 max-w-xl mx-auto mb-8">
-            Join us for the engagement ceremony on <span className="font-semibold text-rose-deep">14th August 2026 at 11:00 AM</span>
+            સગાઈ વિધિમાં અમારી સાથે જોડાઓ <span className="font-semibold text-rose-deep">૧૪ ઓગસ્ટ ૨૦૨૬ સવારે ૧૧:૦૦ વાગ્યે</span>
           </p>
 
           {/* Live Map Embed */}
           <div className="rounded-3xl overflow-hidden border-2 border-gold-soft/40 shadow-elegant mb-8 mx-auto max-w-2xl">
             <iframe
-              title="Engagement Venue Map - Hotel Lotus Grand"
+              title="સગાઈ સ્થળનો નકશો - હોટેલ લોટસ ગ્રાન્ડ"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3559.1234!2d83.1074385!3d26.7581756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39913b776113d1df%3A0x3c4a66456ee53d8b!2sHotel%20Lotus%20Grand!5e0!3m2!1sen!2sin!4v1720000000000!5m2!1sen!2sin"
               width="100%"
               height="380"
@@ -594,7 +594,7 @@ function MainInvitation() {
             rel="noreferrer"
             className="inline-flex items-center gap-2 mt-2 px-8 py-3 rounded-full gradient-gold text-white font-cinzel text-xs tracking-wider shadow-gold hover:opacity-90 transition"
           >
-            <MapPin className="h-4 w-4" /> Get Directions
+            <MapPin className="h-4 w-4" /> દિશા મેળવો
           </a>
         </div>
       </section>
@@ -602,14 +602,14 @@ function MainInvitation() {
       {/* ── Footer ── */}
       <footer className="relative bg-gradient-to-b from-[#3A050B] to-[#5C0F14] text-cream py-16 px-6 text-center z-10 border-t-2 border-gold-soft/40">
         <div className="absolute inset-0 bg-black/10 pointer-events-none" />
-        <p className="font-cinzel text-xs tracking-[0.4em] text-amber-200">WITH LOVE</p>
-        <h3 className="font-script text-5xl sm:text-6xl text-amber-200 mt-3">Shrey &amp; Kirti</h3>
+        <p className="font-cinzel text-xs tracking-[0.4em] text-amber-200">સ્નેહ સહિત</p>
+        <h3 className="font-script text-5xl sm:text-6xl text-amber-200 mt-3">શ્રેય અને કીર્તિ</h3>
         <div className="my-5 flex items-center justify-center gap-3">
           <span className="h-px w-12 bg-gold-soft/30" />
           <span className="text-2xl font-emoji">❤️</span>
           <span className="h-px w-12 bg-gold-soft/30" />
         </div>
-        <p className="font-serif-display text-lg italic text-amber-100">14th August 2026</p>
+        <p className="font-serif-display text-lg italic text-amber-100">૧૪ ઓગસ્ટ ૨૦૨૬</p>
         <p className="mt-3 font-cinzel text-xs tracking-[0.25em] text-amber-100">#SKForever · #ShreyKiKirti</p>
       </footer>
 
