@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
 import confetti from 'canvas-confetti'
-import { Volume2, VolumeX, MapPin } from 'lucide-react'
+import { Volume2, VolumeX, MapPin, ChevronDown } from 'lucide-react'
 
 // ─── Asset paths ────────────────────────────────────────────────────────────
 const A = {
@@ -157,7 +157,7 @@ function MusicPlayer({ play }) {
           type="button"
           aria-label={muted ? 'બેકગ્રાઉન્ડ સંગીત ચાલુ કરો' : 'બેકગ્રાઉન્ડ સંગીત બંધ કરો'}
           onClick={() => setMuted(m => !m)}
-          className="fixed bottom-5 right-5 z-50 h-11 w-11 rounded-full bg-foreground/80 text-cream backdrop-blur shadow-elegant flex items-center justify-center hover:scale-105 transition"
+          className="fixed bottom-5 left-5 z-50 h-11 w-11 rounded-full bg-foreground/80 text-cream backdrop-blur shadow-elegant flex items-center justify-center hover:scale-105 transition"
         >
           {muted ? <VolumeX className="h-5 w-5" /> : <Volume2 className="h-5 w-5" />}
         </button>
@@ -350,6 +350,7 @@ function EnvelopeView({ onOpen, opening }) {
 function MainInvitation() {
   const [dateRevealed, setDateRevealed] = useState(false)
   const [visible, setVisible] = useState({})
+  const [showScrollHint, setShowScrollHint] = useState(true)
   const welcomeRef = useRef(null)
   const wardrobeRef = useRef(null)
 
@@ -367,6 +368,12 @@ function MainInvitation() {
     if (wardrobeRef.current) observer.observe(wardrobeRef.current)
     document.querySelectorAll('.wardrobe-card').forEach(el => observer.observe(el))
     return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollHint(window.scrollY < 120)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
@@ -476,11 +483,27 @@ function MainInvitation() {
           </div>
 
           {/* Shiva-Parvati caricature */}
-          <div className="relative z-10 w-full max-w-[420px] sm:max-w-[520px] mx-auto -mt-48 sm:-mt-64 flex justify-center items-start animate-fade-up delay-1000">
-            <img src={A.shivaParvati} alt="Shiva-Parvati engagement caricature" className="w-full h-auto object-contain drop-shadow-xl select-none" />
-          </div>
-        
+          <div className="relative z-10 w-full max-w-[280px] sm:max-w-[340px] mt-8 flex justify-center items-end animate-fade-up delay-1000">
+          <img src={A.shivaParvati} alt="શિવ-પાર્વતી સગાઈ ચિત્ર" className="w-full h-auto object-contain drop-shadow-xl select-none" />
+        </div>
+
       </section>
+
+      {/* Scroll-down indicator (fixed to viewport, hides on scroll) */}
+      <button
+        type="button"
+        onClick={() => window.scrollBy({ top: window.innerHeight * 0.9, left: 0, behavior: 'smooth' })}
+        aria-label="નીચે સ્ક્રોલ કરો"
+        className={`fixed bottom-5 right-5 z-50 flex items-center gap-2 pl-4 pr-3 py-2 rounded-full bg-[#FCF8F2]/95 border border-gold-soft/60 shadow-elegant backdrop-blur group cursor-pointer transition-opacity duration-500 hover:scale-105 ${showScrollHint ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+      >
+        <span className="font-cinzel text-[11px] sm:text-xs tracking-[0.25em] text-rose-deep uppercase font-semibold">
+          નીચે સ્ક્રોલ કરો
+        </span>
+        <span className="flex flex-col items-center -space-y-2 text-rose-deep animate-bounce group-hover:text-rose">
+          <ChevronDown className="h-4 w-4 opacity-60" strokeWidth={2.5} />
+          <ChevronDown className="h-4 w-4 opacity-90" strokeWidth={2.5} />
+        </span>
+      </button>
 
       {/* ── Save the Date ── */}
       <section className="relative py-20 px-6 bg-cream border-y border-gold-soft/30 z-10">
